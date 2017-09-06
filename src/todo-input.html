@@ -1,0 +1,20 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<dom-module id="todo-input">
+	<template>
+		<style>
+		/* CSS goes here */
+		</style>
+		<paper-input label="Enter something you want to do"></paper-input>
+	</template>
+	<script>
+	class TodoInput extends Polymer.Element {
+		static get is() {
+			return 'todo-input';
+		}
+	}
+
+	window.customElements.define(TodoInput.is, TodoInput);
+	</script>
+</dom-module>
