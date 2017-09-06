@@ -19,3 +19,11 @@ _Matt Langley and Dan Hughes_
 	- Add the standard Polymer custom element definition to `<script>`
 - Replace `<polymer-demo-app>` import in index with `<todo-input>`
 - Replace `<polymer-demo-app>` tag in index with `<todo-input>`
+
+## Accessing the input content
+
+- Add the `PolymerElements/paper-button` element to dependencies
+- Create a `static get properties()` method which defines `content` as a String
+- Define an `_addItem()` method which logs the value of the `content` property
+- Add a `<paper-button>` with an `on-click` event which calls `_addItem`
+- Bind the `<paper-input>`'s `value` attribute to `{{content}}` (this is a two way binding between the HTML element and the class. When the content updates in one, it will be reflected in the other)

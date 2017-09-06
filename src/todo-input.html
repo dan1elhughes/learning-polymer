@@ -1,17 +1,31 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 
 <dom-module id="todo-input">
 	<template>
 		<style>
 		/* CSS goes here */
 		</style>
-		<paper-input label="Enter something you want to do"></paper-input>
+		<paper-input label="Enter something you want to do" value="{{content}}"></paper-input>
+		<paper-button raised on-click="_addItem">Add</paper-button>
 	</template>
 	<script>
 	class TodoInput extends Polymer.Element {
 		static get is() {
 			return 'todo-input';
+		}
+
+		static get properties() {
+			return {
+				content: {
+					type: String,
+				},
+			}
+		}
+
+		_addItem() {
+			console.log(this.content);
 		}
 	}
 
