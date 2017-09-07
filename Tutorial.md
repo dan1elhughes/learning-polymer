@@ -27,3 +27,7 @@ _Matt Langley and Dan Hughes_
 - Define an `_addItem()` method which logs the value of the `content` property
 - Add a `<paper-button>` with an `on-click` event which calls `_addItem`
 - Bind the `<paper-input>`'s `value` attribute to `{{content}}` (this is a two way binding between the HTML element and the class. When the content updates in one, it will be reflected in the other)
+
+## Triggering an event from the input
+
+- Dispatch a custom event from the `_addItem` method which reads the content property and calls `this.dispatchEvent` with a new Custom Event.

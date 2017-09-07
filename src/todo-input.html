@@ -25,7 +25,13 @@
 		}
 
 		_addItem() {
-			console.log(this.content);
+			let content = this.content;
+
+			if (content) {
+				this.dispatchEvent(new CustomEvent('add', {
+					detail: this.content
+				}));
+			}
 		}
 	}
 
