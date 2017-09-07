@@ -37,4 +37,11 @@ _Matt Langley and Dan Hughes_
 - Create a new Polymer element called `todo-app`, which contains the `<todo-input>`.
 - Add an `on-add` attribute to the `<todo-input>` tag which calls a method `_onAdd` on our `todo-app`.
 - Create a static get method called `properties` which describes the initial state of our component. This should return `todos` as having a type of `Array`, and some initial values.
-- Update the `_addItem` method to push each new item to the `todos` property. 
+- Update the `_addItem` method to push each new item to the `todos` property.
+
+## Display the todo list in the page using a template
+
+- Add a new tag `<todo-items>` in our `todo-app` which has an attribute of `items` equal to the bound property of `{{todos}}`.
+- Create the new Polymer element `todo-items`.
+- In the template tag of `todo-items`, use `is="dom-repeat"` to iterate over the `{{items}}` property.
+- In each `<li>`, template out `[[item.value]]`.

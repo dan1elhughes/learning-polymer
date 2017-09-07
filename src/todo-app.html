@@ -1,8 +1,10 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="./todo-input.html">
+<link rel="import" href="./todo-items.html">
 
 <dom-module id="todo-app">
 	<template>
+		<todo-items items="{{todos}}"></todo-items>
 		<todo-input on-add="_addItem"></todo-input>
 	</template>
 	<script>
@@ -29,7 +31,6 @@
 				value: event.detail,
 				done: false
 			});
-			console.log(this.todos);
 		}
 	}
 
