@@ -7,7 +7,7 @@
 		<style>
 		/* CSS goes here */
 		</style>
-		<paper-input label="Enter something you want to do" value="{{content}}"></paper-input>
+		<paper-input id="input" label="Enter something you want to do" value="{{content}}" on-keypress="_onKeypress"></paper-input>
 		<paper-button raised on-click="_addItem">Add</paper-button>
 	</template>
 	<script>
@@ -31,6 +31,13 @@
 				this.dispatchEvent(new CustomEvent('add', {
 					detail: this.content
 				}));
+				this.$.input.value = '';
+			}
+		}
+
+		_onKeypress(e) {
+			if (e.key === 'Enter') {
+				this._addItem();
 			}
 		}
 	}

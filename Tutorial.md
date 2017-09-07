@@ -51,3 +51,19 @@ _Matt Langley and Dan Hughes_
 - Add a `class$=` attribute to the `<li>` within the template, which references `[[item.done]]`. This will evaluate to either "true" or "false".
 - Add a style which shows whether the item is done-true or done-false.
 - Add a `on-click` attribute to the `<li>` which toggles the `done` status of the item.
+
+## General interaction improvements
+
+### Clear done items
+
+- Add a button which triggers a `clear` event
+- Listen to the clear event on the app and clear the todos of any `done` items, by filtering them on `done`
+
+### Add item on enter keypress
+
+- Add another attribute to the `<paper-input>` which listens for `on-keypress` and calls `_onKeypress` on the `todo-input`
+- If the keypress is `Enter`, add the item
+
+### Clear the input when adding an item
+
+- In `_addItem`, set the input value to be an empty string after triggering the `add` event.

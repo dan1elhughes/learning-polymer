@@ -1,0 +1,21 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="todo-clear">
+	<template>
+		<paper-button raised on-click="_onClear">Clear completed items</paper-button>
+	</template>
+	<script>
+	class TodoClear extends Polymer.Element {
+		static get is() {
+			return 'todo-clear';
+		}
+
+		_onClear() {
+			this.dispatchEvent(new CustomEvent('clear'));
+		}
+	}
+
+	window.customElements.define(TodoClear.is, TodoClear);
+	</script>
+</dom-module>

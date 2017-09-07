@@ -1,11 +1,13 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="./todo-input.html">
 <link rel="import" href="./todo-items.html">
+<link rel="import" href="./todo-clear.html">
 
 <dom-module id="todo-app">
 	<template>
 		<todo-items items="{{todos}}"></todo-items>
 		<todo-input on-add="_addItem"></todo-input>
+		<todo-clear on-clear="_clearItems"></todo-clear>
 	</template>
 	<script>
 	class TodoApp extends Polymer.Element {
@@ -31,6 +33,10 @@
 				value: event.detail,
 				done: false
 			});
+		}
+
+		_clearItems() {
+			this.set('todos', this.todos.filter(todo => !todo.done));
 		}
 	}
 
