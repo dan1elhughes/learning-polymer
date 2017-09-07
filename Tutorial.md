@@ -31,3 +31,8 @@ _Matt Langley and Dan Hughes_
 ## Triggering an event from the input
 
 - Dispatch a custom event from the `_addItem` method which reads the content property and calls `this.dispatchEvent` with a new Custom Event.
+
+## Abstracting the input functionality
+
+- Create a new Polymer element called `todo-app`, which contains the `<todo-input>`.
+- Add an `on-add` attribute to the `<todo-input>` tag which calls a method `_onAdd` on our `todo-app`.
