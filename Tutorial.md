@@ -36,3 +36,5 @@ _Matt Langley and Dan Hughes_
 
 - Create a new Polymer element called `todo-app`, which contains the `<todo-input>`.
 - Add an `on-add` attribute to the `<todo-input>` tag which calls a method `_onAdd` on our `todo-app`.
+- Create a static get method called `properties` which describes the initial state of our component. This should return `todos` as having a type of `Array`, and some initial values.
+- Update the `_addItem` method to push each new item to the `todos` property. 

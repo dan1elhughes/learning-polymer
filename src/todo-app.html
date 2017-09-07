@@ -11,8 +11,25 @@
 			return 'todo-app';
 		}
 
+		static get properties() {
+			return {
+				todos: {
+					type: Array,
+					value: () => ([
+						{ value: 'Do this', done: true },
+						{ value: 'Do that', done: false },
+						{ value: 'Do something else', done: false },
+					])
+				},
+			}
+		}
+
 		_addItem(event) {
-			console.log(event.detail);
+			this.push('todos', {
+				value: event.detail,
+				done: false
+			});
+			console.log(this.todos);
 		}
 	}
 
