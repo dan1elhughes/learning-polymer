@@ -45,3 +45,9 @@ _Matt Langley and Dan Hughes_
 - Create the new Polymer element `todo-items`.
 - In the template tag of `todo-items`, use `is="dom-repeat"` to iterate over the `{{items}}` property.
 - In each `<li>`, template out `[[item.value]]`.
+
+## Add interaction to mark items as done
+
+- Add a `class$=` attribute to the `<li>` within the template, which references `[[item.done]]`. This will evaluate to either "true" or "false".
+- Add a style which shows whether the item is done-true or done-false.
+- Add a `on-click` attribute to the `<li>` which toggles the `done` status of the item.

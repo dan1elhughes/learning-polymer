@@ -3,8 +3,27 @@
 <dom-module id="todo-items">
 	<template>
 
+		<style>
+			li {
+				cursor: pointer;
+				user-select: none;
+			}
+
+			li.done-true {
+				text-decoration: line-through;
+				font-style: italic;
+			}
+
+			.done-false span:nth-of-type(1) {
+				visibility: hidden;
+			}
+		</style>
+
 		<template is="dom-repeat" items="{{items}}">
-			<li>[[item.value]]</li>
+			<li class$="done-[[item.done]]" on-click="_toggleItem">
+				<span>✓</span>
+				<span>[[item.value]]</span>
+			</li>
 		</template>
 
 	</template>
@@ -12,6 +31,12 @@
 	class TodoItems extends Polymer.Element {
 		static get is() {
 			return 'todo-items';
+		}
+
+		_toggleItem(e) {
+			let model = e.model;
+
+			model.set('item.done', !model.item.done);
 		}
 	}
 
