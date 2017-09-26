@@ -1,10 +1,23 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+
 <link rel="import" href="./todo-input.html">
 <link rel="import" href="./todo-items.html">
 <link rel="import" href="./todo-clear.html">
 
 <dom-module id="todo-app">
 	<template>
+		<iron-ajax
+			auto
+			url="/api/tasks"
+			last-response="{{todos}}"
+			loading="{{loading}}"
+		></iron-ajax>
+
+		<paper-spinner hidden$="[[!loading]]" active="[[loading]]"></paper-spinner>
+
+		<h2>[[numberOfItemsToDo]]</h2>
 		<todo-items items="{{todos}}"></todo-items>
 		<todo-input on-add="_addItem"></todo-input>
 		<todo-clear on-clear="_clearItems"></todo-clear>
@@ -19,11 +32,17 @@
 			return {
 				todos: {
 					type: Array,
-					value: () => ([
-						{ value: 'Do this', done: true },
-						{ value: 'Do that', done: false },
-						{ value: 'Do something else', done: false },
-					])
+					value() {
+						return [];
+					},
+				},
+				loading: {
+					type: Boolean,
+					value: true,
+				},
+				numberOfItemsToDo: {
+					type: Number,
+					computed: '_computeNumberOfItemsToDo(todos.*)',
 				},
 			}
 		}
@@ -33,6 +52,10 @@
 				value: event.detail,
 				done: false
 			});
+		}
+
+		_computeNumberOfItemsToDo({ base }) {
+			return base.filter(item => !item.done).length;
 		}
 
 		_clearItems() {

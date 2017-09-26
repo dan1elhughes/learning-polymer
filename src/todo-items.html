@@ -48,9 +48,9 @@
 		}
 
 		_toggleItem(e) {
-			let model = e.model;
+			let index = e.model.index;
 
-			model.set('item.done', !model.item.done);
+			this.set(`items.${index}.done`, !e.model.item.done);
 		}
 	}
 
